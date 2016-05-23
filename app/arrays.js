@@ -10,36 +10,58 @@ exports.arraysAnswers = {
 
   sum : function(arr) {
     //'you should be able to add the values of an array'
-
+    var total=0;
+    for(var i=0; i<arr.length; i++){
+      total += arr[i];
+    }
+    return total;
   },
 
   remove : function(arr, item) {
-
+    for(var i=0;i<arr.length;i++){
+      if(item == arr[i]){
+        arr.splice(i,1);
+      }
+    }
+    return arr;
   },
 
   removeWithoutCopy : function(arr, item) {
     //you should be able to remove all instances of a value from an array, returning the original array'
-
+    console.log(arr);
+    console.log(item);
+    for(var i=0;i<arr.length;i++){
+      if(item == arr[i]){
+        console.log('remove i:' + i);
+        arr.splice(i,1);
+      }
+    }
+    console.log(arr);
   },
 
   append : function(arr, item) {
-
+    arr.push(item);
+    return arr;
   },
 
   truncate : function(arr) {
-
+    arr.pop();
+    return arr;
   },
 
   prepend : function(arr, item) {
-
+    arr.unshift(item);
+    return arr;
   },
 
   curtail : function(arr) {
-
+    arr.splice(0,1);
+    return arr;
   },
 
   concat : function(arr1, arr2) {
-
+    var newArray = arr1.concat(arr2);
+    return newArray;
   },
 
   insert : function(arr, item, index) {
@@ -47,29 +69,44 @@ exports.arraysAnswers = {
   },
 
   count : function(arr, item) {
-
+    var count = 0;
+    for(var i=0; i< arr.length;i++){
+      if(arr[i] == item){
+        count++;
+      }
+    }
+    return count;
   },
 
   duplicates : function(arr) {
-
+    var dupArray = [];
+    arr = arr.sort();
+    for(var i=0;i<arr.length; i++){
+      if((arr[i] == arr[i+1]) && (arr[i] != arr[i-1])){
+        dupArray.push(arr[i]);
+      }
+    }
+    return dupArray;
   },
 
   square : function(arr) {
+    for(var i=0; i<arr.length;i++){
+      arr[i] = arr[i] * arr[i];
+    }
 
+    return(arr);
   },
 
   findAllOccurrences : function(arr, target) {
     //you should be able to find all occurrences of an item in an array
-    //console.log(arr, ", target: ", target);
-    //var i = 0, total = 0;
-    //console.log(arr.length);
-    //while(i != arr.length){
-      //if(arr[i] == target){
-        //here[total] = i;
-        //console.log(i);
-      //}
-    //}
+    var i = 0, total = 0, here=[];
+    while(i != arr.length){
+      if(arr[i] == target){
+        here.push(i);
+      }
+      i++;
+    }
 
-    //console.log("locations of target: " +  here.length);
+    return here;
   }
 };
