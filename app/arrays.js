@@ -28,15 +28,11 @@ exports.arraysAnswers = {
 
   removeWithoutCopy : function(arr, item) {
     //you should be able to remove all instances of a value from an array, returning the original array'
-    console.log(arr);
-    console.log(item);
     for(var i=0;i<arr.length;i++){
       if(item == arr[i]){
-        console.log('remove i:' + i);
         arr.splice(i,1);
       }
     }
-    console.log(arr);
   },
 
   append : function(arr, item) {

@@ -2,15 +2,22 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.functionsAnswers = {
   argsAsArray : function(fn, arr) {
-
+    var name = fn.apply(null,arr);
+    return name;
   },
 
   speak : function(fn, obj) {
-
+    var sayHello = fn.call(obj);
+    return sayHello;
   },
 
   functionFunction : function(str) {
-
+    functionFunction();
+    var answer = function(){
+      var hiString = str + " ," + str + " ?";
+      return hiString;
+    }
+    return answer;
   },
 
   makeClosures : function(arr, fn) {
