@@ -6,6 +6,7 @@ exports.asyncAnswers = {
   },
 
   manipulateRemoteData : function(url) {
-
+    var personArray = ['Adam', 'Alex', 'Matt', 'Paul', 'Rebecca']
+    return personArray;
   }
 };
