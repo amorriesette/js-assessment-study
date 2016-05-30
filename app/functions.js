@@ -12,12 +12,7 @@ exports.functionsAnswers = {
   },
 
   functionFunction : function(str) {
-    functionFunction();
-    var answer = function(){
-      var hiString = str + " ," + str + " ?";
-      return hiString;
-    }
-    return answer;
+    var sec = functionFunction();
   },
 
   makeClosures : function(arr, fn) {
@@ -29,11 +24,18 @@ exports.functionsAnswers = {
   },
 
   useArguments : function() {
-
+    var total=0;
+    if(arguments.length > 1){
+      for(var i=0; i<arguments.length; i++){
+        total += arguments[i];
+      }
+      return total;
+    }
+    return arguments[0];
   },
 
   callIt : function(fn) {
-
+    console.log(fn);
   },
 
   partialUsingArguments : function(fn) {
