@@ -31,8 +31,10 @@ exports.arraysAnswers = {
     for(var i=0;i<arr.length;i++){
       if(item == arr[i]){
         arr.splice(i,1);
+        i--;
       }
     }
+    return arr;
   },
 
   append : function(arr, item) {
@@ -61,7 +63,8 @@ exports.arraysAnswers = {
   },
 
   insert : function(arr, item, index) {
-
+    arr.splice(index,0,item);
+    return arr;
   },
 
   count : function(arr, item) {
