@@ -49,12 +49,8 @@ dexports = (typeof window === 'undefined') ? global : window;
    },
 
    callIt : function(fn) {
-     var arr = [];
-     var number = arguments[0].length;
-     for(var i=1; i<=number; i++){
-       arr.push(arguments[i]);
-     }
-     return fn(arr);
+    var args = Array.prototype.slice.call(arguments,1,arguments.length);
+    return fn.apply(null, args);
    },
 
    partialUsingArguments : function(fn) {
@@ -66,6 +62,24 @@ dexports = (typeof window === 'undefined') ? global : window;
    },
 
    curryIt : function(fn) {
+    function applyArguments(_fn, args) {
+      return _fn.apply(null, args);
+    }
 
-   }
+    function getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount) {
+      return function (currentArgument) {
+        accumulatedArguments.push(currentArgument);
+
+        var allArgumentsProvided = accumulatedArguments.length === expectedArgumentsCount;
+
+        if (allArgumentsProvided) {
+          return applyArguments(fn, accumulatedArguments);
+        }
+
+        return getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount);
+      };
+    }
+
+    return getArgumentAccumulator([], fn.length);
+  }
  };

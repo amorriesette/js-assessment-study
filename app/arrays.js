@@ -81,7 +81,7 @@ exports = (typeof window === 'undefined') ? global : window;
      var dupArray = [];
      arr = arr.sort();
      for(var i=0;i<arr.length; i++){
-       if((arr[i] == arr[i+1]) && (arr[i] != arr[i1])){
+       if((arr[i] == arr[i+1]) && (arr[i] != arr[i-1])){
          dupArray.push(arr[i]);
        }
      }
